@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>회원가입 페이지</title>
+
+    <link href="singup.css" rel="stylesheet" />
+    <script src="signup.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title"><h1 style="font-size: 21px;">회원가입</h1></div>
+        <div class="email">
+            <input id="email" type="text" placeholder="이메일을 입력해 주세요.">
+            <div id="emailError" class="error"></div>
+        </div>
+        
+        <div class="name">
+            <input id="name"  type="text" placeholder="이름을 입력해 주세요.">
+            <div id="nameError" class="error"></div>
+        </div>
+
+        <div class="id">
+            <input id="id"  type="text" placeholder="아이디를 입력해 주세요.">
+            <div id="idError" class="error"></div>
+        </div>
+
+        <div class="password">
+            <input id="password" type="password" placeholder="비밀번호를 입력해 주세요.">
+            <div id="passwordError" class="error"></div>
+        </div>
+        
+        <div class="passwordCheck">
+            <input id="passwordCheck" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
+            <div id="passwordCheckError" class="error"></div>
+        </div>
+        
+        <div class="phone">
+            <input id="phone1" type="text" size="1" maxlength="3" oninput="changePhone1()"> -
+            <input id="phone2" type="text" size="3" maxlength="4" oninput="changePhone2()"> -
+            <input id="phone3" type="text" size="3" maxlength="4" oninput="changePhone3()">
+        </div>
+
+       <div class="score">
+            <input id= "score1" type="text" placeholder="중대 점수를 입력하세요">
+            <input id= "score2" type="text" placeholder="대대 점수를 입력하세요">
+       </div>
+        
+       <div class="gender">
+            <input id="gender_man" type="radio" name="gender">남성  
+            <input id="gender_woman" type="radio" name="gender">여성
+            <div id="genderError" class="error"></div>
+        </div>
+        
+        <div class="line">
+            <hr>
+        </div>
+        
+        <div class="signUp">
+            <button id="signUpButton" type="submit" onclick="return create_id()">가입하기</button>
+        </div>
+
+    </div>
+
+
+<script>
+ function create_id(){
+        var id = document.querySelector('#id');
+        var pw = document.querySelector('#password');
+        var r_pw = document.querySelector('#passwordCheck');
+
+        if( id.value == "" || pw.value == "" || r_pw.value == "" ){
+            alert("회원가입을 할 수가 없습니다")
+        }
+        else{
+            if(pw.value !== r_pw.value) {
+                alert("비밀번호를 확인해주세요.")
+            }
+            else {
+                location.href = 'login-9.html';
+            }
+        }   
+ }
+</script>
+    
+
+</body>
+
+</html>
